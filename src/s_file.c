@@ -29,6 +29,7 @@
 #include <tchar.h>
 #endif
 #ifdef _MSC_VER  /* This is only for Microsoft's compiler, not cygwin, e.g. */
+#include <winreg.h>
 #define snprintf sprintf_s
 #endif
 

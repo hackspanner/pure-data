@@ -22,6 +22,7 @@
 #include <winbase.h>
 #endif
 #ifdef _MSC_VER  /* This is only for Microsoft's compiler, not cygwin, e.g. */
+#pragma warning(disable: 4996) // disable POSIX deprecated warnings
 #define snprintf sprintf_s
 #endif
 

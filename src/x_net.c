@@ -10,7 +10,11 @@
 #include <sys/types.h>
 #include <string.h>
 #ifdef _WIN32
+#ifdef _MSC_VER
+#include <winsock2.h>
+#else
 #include <winsock.h>
+#endif
 #else
 #include <sys/socket.h>
 #include <netinet/in.h>

@@ -40,6 +40,8 @@ objects use Posix-like threads.  */
 #define O_CREAT   _O_CREAT
 #define O_TRUNC   _O_TRUNC
 #define O_WRONLY  _O_WRONLY
+
+#pragma warning(disable: 4996) // deprecated read/write
 #endif
 
 /***************** soundfile header structures ************************/

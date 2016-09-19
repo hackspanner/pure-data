@@ -31,6 +31,10 @@
 # include <stdlib.h> /* BSDs for example */
 #endif
 
+#ifdef _MSC_VER
+#pragma warning(disable: 4996) // disable POSIX deprecated warnings
+#endif
+
 #include <string.h>
 #include "m_pd.h"
 #include "m_imp.h"

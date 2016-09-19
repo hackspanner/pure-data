@@ -21,6 +21,7 @@
 
 #ifdef _MSC_VER
 #define snprintf sprintf_s
+#pragma warning(disable: 4996) // deprecated lseek
 #endif
 
 struct _binbuf

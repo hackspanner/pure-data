@@ -23,6 +23,7 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #ifdef _MSC_VER  /* This is only for Microsoft's compiler, not cygwin, e.g. */
+#pragma warning(disable: 4996) // disable POSIX deprecated warnings
 #define snprintf sprintf_s
 #define stat _stat
 #endif

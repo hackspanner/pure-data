@@ -9,6 +9,10 @@
 #include "g_canvas.h"
 #include <math.h>
 
+#ifdef _MSC_VER
+#pragma warning(disable: 4996) // disable POSIX deprecated warnings
+#endif
+
 /* jsarlo { */
 #define ARRAYPAGESIZE 1000  /* this should match the page size in u_main.tk */
 /* } jsarlo */

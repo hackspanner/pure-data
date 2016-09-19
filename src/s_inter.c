@@ -29,7 +29,12 @@ that didn't really belong anywhere. */
 #include <io.h>
 #include <fcntl.h>
 #include <process.h>
+#ifdef _MSC_VER
+#include <winsock2.h>
+#pragma warning(disable: 4996) // deprecated read/write
+#else
 #include <winsock.h>
+#endif
 #include <windows.h>
 typedef int socklen_t;
 #define EADDRINUSE WSAEADDRINUSE
@@ -163,6 +168,7 @@ extern int sys_nosleep;
 static int sys_domicrosleep(int microsec, int pollem)
 {
     struct timeval timout;
+
     int i, didsomething = 0;
     t_fdpoll *fp;
     timout.tv_sec = 0;
@@ -173,7 +179,7 @@ static int sys_domicrosleep(int microsec, int pollem)
         FD_ZERO(&writeset);
         FD_ZERO(&readset);
         FD_ZERO(&exceptset);
-        for (fp = sys_fdpoll, i = sys_nfdpoll; i--; fp++)
+		for (fp = sys_fdpoll, i = sys_nfdpoll; i--; fp++)
             FD_SET(fp->fdp_fd, &readset);
 #ifdef _WIN32
         if (sys_maxfd == 0)
